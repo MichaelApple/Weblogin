@@ -2,6 +2,7 @@ package com.webapp.controller;
 
 import com.sun.deploy.net.HttpRequest;
 import com.webapp.model.Model;
+import com.webapp.model.exceptions.LoginAlreadyUsedException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,13 +24,24 @@ import static com.webapp.controller.RegExpressions.REG_EXPRSSION_MAP;
 @WebServlet(name = "Controller")
 public class Controller extends HttpServlet {
 
+    Model model = new Model();
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        RequestDispatcher view;
 
 
-        RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+        try {
+            model.addUser(request.getParameter("firstName"), request.getParameter("lastName"), request.getParameter("middletName"), request.getParameter("nickName"), request.getParameter("comment"), request.getParameter("group"), request.getParameter("homePhone"), request.getParameter("cellPhone1"), request.getParameter("cellPhone2"), request.getParameter("email"), request.getParameter("skype"), request.getParameter("zip"), request.getParameter("city"), request.getParameter("street"), request.getParameter("buildingNumber"), request.getParameter("flat"));
+
+            request.setAttribute("model", model);
+            view = request.getRequestDispatcher("result.jsp");
+
+        } catch (LoginAlreadyUsedException e) {
+            view = request.getRequestDispatcher("index.jsp");
+        }
+
         view.forward(request, response);
     }
 

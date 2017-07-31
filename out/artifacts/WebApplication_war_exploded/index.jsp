@@ -23,14 +23,14 @@
       <div class="form-group row">
         <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control " id="firstName" placeholder="First Name" name="firstName">
+          <input type="text" class="form-control " id="firstName" placeholder="First Name" name="firstName" required>
         </div>
       </div>
 
       <div class="form-group row">
         <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName">
+          <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName" required>
         </div>
       </div>
       <div class="form-group row">

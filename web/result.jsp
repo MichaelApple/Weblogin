@@ -12,11 +12,12 @@
     <title>Process User</title>
 </head>
 <body>
-    <h4>
-        <%--<jsp:useBean id="user" class="com.webapp.model.Model" scope="application"/>--%>
-        <%--<%--%>
-            <%--Model model = (Model) request.getAttribute("model");--%>
-            <%--out.println(model.getUser().getFirstName()); %>--%>
+    <h4 align="center">
+        <jsp:useBean id="model" class="com.webapp.model.Model" scope="application"/>
+
+        <%
+            model = (Model) request.getAttribute("model");
+            out.println(model.getUser().toString());%>
     </h4>
 </body>
 </html>

@@ -1,5 +1,7 @@
 package com.webapp.model.entity;
 
+import com.webapp.model.exceptions.LoginAlreadyUsedException;
+
 import java.time.LocalDateTime;
 
 /**
@@ -11,7 +13,7 @@ public class User {
     private String lastName;
     private String middleName;
     private String initials;
-    private String nickName;
+    private String nickName = "Michael";
     private String comment;
     private Group group;
     private String homePhone;
@@ -24,16 +26,15 @@ public class User {
     private LocalDateTime dateOfCreation;
     private LocalDateTime lastChangesDate;
 
-    public User(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public User(String firstName, String lastName, String middleName, String nickName, String comment, Group group, String homePhone, String cellPhonel, String cellPhone2, String email, String skype, Adress adress) {
+    public User(String firstName, String lastName, String middleName, String nickName, String comment, Group group, String homePhone, String cellPhonel, String cellPhone2, String email, String skype, Adress adress) throws LoginAlreadyUsedException {
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
         this.initials = lastName + firstName.charAt(0) + ".";
-        this.nickName = nickName;
+
+        if (nickName.equals("Michael")) throw new LoginAlreadyUsedException();
+        else this.nickName = nickName;
+
         this.comment = comment;
         this.group = group;
         this.homePhone = homePhone;
