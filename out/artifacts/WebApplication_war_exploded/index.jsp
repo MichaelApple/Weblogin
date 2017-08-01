@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.webapp.model.Model" %><%--
   Created by IntelliJ IDEA.
   User: Miha
   Date: 31.07.2017
@@ -17,6 +17,7 @@
       <title>PhoneBook</title>
   </head>
   <body>
+
   <div class="container" style="width: 50%">
     <h2 align="center">Enter your data here</h2>
     <form action="userForm" method="post">
@@ -42,7 +43,7 @@
       <div class="form-group row">
         <label for="nickName" class="col-sm-2 col-form-label">Your NickName</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="nickName" placeholder="Your NickName" name="nickName">
+          <input type="text" class="form-control" id="nickName" placeholder="Your NickName" name="nickName" required>
         </div>
       </div>
       <div class="form-group row">
@@ -135,6 +136,8 @@
       </div>
     </form>
   </div>
+
+
 
   </body>
 

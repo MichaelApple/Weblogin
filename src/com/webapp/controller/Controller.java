@@ -39,6 +39,8 @@ public class Controller extends HttpServlet {
             view = request.getRequestDispatcher("result.jsp");
 
         } catch (LoginAlreadyUsedException e) {
+
+            request.setAttribute("exception", e);
             view = request.getRequestDispatcher("index.jsp");
         }
 

@@ -17,7 +17,8 @@
 
         <%
             model = (Model) request.getAttribute("model");
-            out.println(model.getUser().toString());%>
+            out.println(model.getUser().toString());
+        %>
     </h4>
 </body>
 </html>
