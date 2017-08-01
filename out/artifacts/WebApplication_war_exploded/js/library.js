@@ -9,7 +9,7 @@ jQuery(function($){
 
         switch (name) {
             case "nickName":
-                regex = "[a-z0-9_-]{3,20}$";
+                regex = "[A-z0-9_-]{3,20}$";
                 break;
             case "homePhone":
                 regex = "^\\([0-9]{3}\\)[0-9]{3}-[0-9]{2}-[0-9]{2}$";
@@ -55,6 +55,10 @@ jQuery(function($){
         }
     });
 });
+
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').focus()
+})
 
 
 

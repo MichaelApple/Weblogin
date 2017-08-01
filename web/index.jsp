@@ -1,4 +1,5 @@
-<%@ page import="com.webapp.model.Model" %><%--
+<%@ page import="com.webapp.model.Model" %>
+<%@ page import="com.webapp.model.exceptions.LoginAlreadyUsedException" %><%--
   Created by IntelliJ IDEA.
   User: Miha
   Date: 31.07.2017
@@ -10,13 +11,28 @@
   <head>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
       <script src="js/library.js"></script>
 
       <title>PhoneBook</title>
   </head>
   <body>
+
+  <jsp:useBean id="exception" class="com.webapp.model.exceptions.LoginAlreadyUsedException" scope="application"/>
+
+  <%
+      String classList = "";
+      String LoginAlreadyExistsDiv = "";
+      String formControlList = "";
+      if (request.getAttribute("exception") != null) {
+          exception = (LoginAlreadyUsedException) request.getAttribute("exception");
+          LoginAlreadyExistsDiv = "<div class=\"form-control-feedback\">Sorry, that username's taken. Try another?</div>";
+          classList += " has-danger";
+          formControlList = " form-control-danger";
+      }
+
+  %>
 
   <div class="container" style="width: 50%">
     <h2 align="center">Enter your data here</h2>
@@ -40,10 +56,11 @@
           <input type="text" class="form-control" id="middleName" placeholder="Middle Name" name="middleName">
         </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group row <%=classList%>">
         <label for="nickName" class="col-sm-2 col-form-label">Your NickName</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="nickName" placeholder="Your NickName" name="nickName" required>
+          <input type="text" class="form-control <%=formControlList%>" id="nickName" placeholder="Your NickName" name="nickName" required>
+          <%=LoginAlreadyExistsDiv%>
         </div>
       </div>
       <div class="form-group row">
@@ -136,8 +153,6 @@
       </div>
     </form>
   </div>
-
-
 
   </body>
 
