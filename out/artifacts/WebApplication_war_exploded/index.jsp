@@ -41,7 +41,7 @@
   %>
 
   <div class="container" style="width: 50%">
-    <h2 align="center"><fmt:message key="enter.data" /> Щось не відображається</h2>
+    <h2 align="center"><fmt:message key="enter.data" /></h2>
       <br>
       <form>
           <select id="language" name="language" onchange="submit()">
@@ -59,13 +59,13 @@
       </div>
 
       <div class="form-group row">
-        <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+        <label for="lastName" class="col-sm-2 col-form-label"><fmt:message key="login.label.lastname" /></label>
         <div class="col-sm-10">
           <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName" required>
         </div>
       </div>
       <div class="form-group row">
-        <label for="middleName" class="col-sm-2 col-form-label">Middle Name</label>
+        <label for="middleName" class="col-sm-2 col-form-label"><fmt:message key="login.label.middlename" /></label>
         <div class="col-sm-10">
           <input type="text" class="form-control" id="middleName" placeholder="Middle Name" name="middleName">
         </div>
