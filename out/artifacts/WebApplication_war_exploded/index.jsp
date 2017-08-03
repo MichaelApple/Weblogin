@@ -17,6 +17,7 @@
   <head>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
+      <link rel="icon" href="images/icon.png" type="image/png" sizes="16x16">
       <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
       <script src="js/library.js"></script>
@@ -55,20 +56,20 @@
       <div class="form-group row">
         <label for="firstName" class="col-sm-3 col-form-label"><fmt:message key="login.label.username" /></label>
         <div class="col-sm-9">
-          <input type="text" class="form-control " id="firstName" placeholder="<fmt:message key="login.label.username" />" name="firstName" required>
+          <input type="text" class="form-control " id="firstName" placeholder="<fmt:message key="login.input.usename" />" name="firstName" required>
         </div>
       </div>
 
       <div class="form-group row">
         <label for="lastName" class="col-sm-3 col-form-label"><fmt:message key="login.label.lastname" /></label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="lastName" placeholder="<fmt:message key="login.label.lastname" />" name="lastName" required>
+          <input type="text" class="form-control" id="lastName" placeholder="<fmt:message key="login.input.lastname" />" name="lastName" required>
         </div>
       </div>
       <div class="form-group row">
         <label for="middleName" class="col-sm-3 col-form-label"><fmt:message key="login.label.middlename" /></label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="middleName" placeholder="<fmt:message key="login.label.middlename" />" name="middleName">
+          <input type="text" class="form-control" id="middleName" placeholder="<fmt:message key="login.input.middlename" />" name="middleName">
         </div>
       </div>
       <div class="form-group row <%=classList%>">
