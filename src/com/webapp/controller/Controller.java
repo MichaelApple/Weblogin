@@ -31,7 +31,6 @@ public class Controller extends HttpServlet {
 
         RequestDispatcher view;
 
-
         try {
             model.addUser(request.getParameter("firstName"), request.getParameter("lastName"), request.getParameter("middletName"), request.getParameter("nickName"), request.getParameter("comment"), request.getParameter("group"), request.getParameter("homePhone"), request.getParameter("cellPhone1"), request.getParameter("cellPhone2"), request.getParameter("email"), request.getParameter("skype"), request.getParameter("zip"), request.getParameter("city"), request.getParameter("street"), request.getParameter("buildingNumber"), request.getParameter("flat"));
 

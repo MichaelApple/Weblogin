@@ -1,5 +1,6 @@
 <%@ page import="com.webapp.model.Model" %>
-<%@ page import="com.webapp.model.exceptions.LoginAlreadyUsedException" %><%--
+<%@ page import="com.webapp.model.exceptions.LoginAlreadyUsedException" %>
+<%@ page import="java.util.ResourceBundle" %><%--
   Created by IntelliJ IDEA.
   User: Miha
   Date: 31.07.2017
@@ -7,7 +8,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="resources.text" />
+<html lang="${language}">
   <head>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
@@ -35,10 +41,18 @@
   %>
 
   <div class="container" style="width: 50%">
-    <h2 align="center">Enter your data here</h2>
+    <h2 align="center"><fmt:message key="enter.data" /> Щось не відображається</h2>
+      <br>
+      <form>
+          <select id="language" name="language" onchange="submit()">
+              <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
+              <option value="ua" ${language == 'ua' ? 'selected' : ''}>Українська</option>
+          </select>
+      </form>
+      <br><br>
     <form action="userForm" method="post">
       <div class="form-group row">
-        <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+        <label for="firstName" class="col-sm-2 col-form-label"><fmt:message key="login.label.username" /></label>
         <div class="col-sm-10">
           <input type="text" class="form-control " id="firstName" placeholder="First Name" name="firstName" required>
         </div>
